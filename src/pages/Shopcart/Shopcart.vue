@@ -25,10 +25,10 @@
     </div>
     <div class="content-wrap">
       <div class="content">
-        <div class="images"></div>
-        <div class="text">
-          <div class="text-title">购物车空空如也</div>
-          <router-link class="txt-button" to="/personal">登陆</router-link>
+        <div class="img-container"></div>
+        <div class="txt">
+          <div class="txt-title">购物车空空如也</div>
+          <router-link class="text-button" to="/personal">登陆</router-link>
         </div>
       </div>
     </div>
@@ -72,4 +72,58 @@
       justify-content space-between
       padding (0 30/$rem)
       height (70/$rem)
+      .list
+       display flex
+       align-items  center
+       font-size (26/$rem)
+       color #333
+       .list-item
+        display inline-block
+        vertical-align  middle
+        margin-right (10/$rem)
+        background-image url("./images/circle.png")
+        width (10/$rem)
+        height (10/$rem)
+        background-size 100%
+        background-repeat  no-repeat
+
+    .content-wrap
+      position fixed
+      top 0
+      left 0
+      bottom 0
+      background-color #f4f4f4
+      width 100%
+      .content
+        width 10rem
+        height 4rem
+        position absolute
+        top 0
+        right 0
+        bottom 0
+        left 0
+        margin auto
+        text-align center
+        .img-container
+          display inline-block
+          width (248/$rem)
+          height (248/$rem)
+          background-image url("./images/shopcart.png")
+          background-size 100%
+          background-repeat no-repeat
+        .txt
+          color #7f7f7f
+          font-size (28/$rem)
+          margin-top (-24/$rem)
+          .txt-title
+            margin-bottom (50/$rem)
+          .text-button
+            display inline-block
+            margin 0 auto
+            width (480/$rem)
+            color #fff
+            background-color #b4282d
+            line-height (92/$rem)
+            border-radius (5/$rem)
+            font-size (30/$rem)
 </style>

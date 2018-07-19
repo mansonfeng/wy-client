@@ -8,6 +8,7 @@
 <script>
   import Footguide from './components/Footguide/Footguide.vue'
 export default {
+  name:"app",
   components:{
     Footguide
   }

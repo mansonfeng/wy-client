@@ -1,6 +1,6 @@
 <template>
     <div>
-      SHeader
+      AlertTip
     </div>
 </template>
 
@@ -9,6 +9,5 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/minxins.styl"
 
 </style>
