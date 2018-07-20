@@ -1,11 +1,11 @@
 <template>
-    <div class="shiwu-wrap">
+    <div class="ShiWu-wrap">
+      <!--表头 后面有一样的-->
       <SHeader/>
-      <div class="shiwu-content">
+      <div class="ShiWu-content">
         <SummerGirl/>
         <ShiwuCarousel/>
         <Recommend/>
-        <DoubleInfo/>
         <TenTimeCarousel/>
         <YanXuanZhenP/>
         <YanXuanLook/>
@@ -17,21 +17,21 @@
 
 <script>
     import SHeader from '../../components/SHeader/SHeader.vue'
-    import ShiwuCarousel from '../../components/shiwu/ShiwuCarousel/ShiwuCarousel.vue'
-    import Recommend from '../../components/shiwu/Recommend/Recommend.vue'
-    import DoubleInfo from '../../components/shiwu/DoubleInfo/DoubleInfo.vue'
-    import TenTimeCarousel from '../../components/shiwu/TenTimeCarousel/TenTimeCarousel.vue'
-    import YanXuanZhenP from '../../components/shiwu/YanXuanZhenP/YanXuanZhenP.vue'
-    import YanXuanLook from '../../components/shiwu/YanXuanLook/YanXuanLook.vue'
-    import More from '../../components/shiwu/More/More.vue'
+    import SummerGirl from '../../components/ShiWu/SummerGirl/SummerGirl.vue'
+    import ShiwuCarousel from '../../components/ShiWu/ShiwuCarousel/ShiwuCarousel.vue'
+    import Recommend from '../../components/ShiWu/Recommend/Recommend.vue'
+    import TenTimeCarousel from '../../components/ShiWu/TenTimeCarousel/TenTimeCarousel.vue'
+    import YanXuanZhenP from '../../components/ShiWu/YanXuanZhenP/YanXuanZhenP.vue'
+    import YanXuanLook from '../../components/ShiWu/YanXuanLook/YanXuanLook.vue'
+    import More from '../../components/ShiWu/More/More.vue'
 
     export default {
-      name:"Shiwu",
+      name:"ShiWu",
       components:{
         SHeader,
+        SummerGirl,
         ShiwuCarousel,
         Recommend,
-        DoubleInfo,
         TenTimeCarousel,
         YanXuanZhenP,
         YanXuanLook,
@@ -42,9 +42,9 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/minxins.styl"
-  .shiwu-wrap
+  .ShiWu-wrap
     padding-bottom (98/$rem)
     background-color #F4F4F4
-    .shiwu-content
+    .ShiWu-content
       margin-top (88/$rem)
 </style>

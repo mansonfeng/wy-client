@@ -102,13 +102,12 @@
           </div>
         </div>
       </div>
-      <AlertTip/>
+
     </div>
 </template>
 
 <script>
   import SHeader from '../../components/SHeader/SHeader.vue'
-  import AlertTip from '../../components/AlertTip/AlertTip.vue'
     export default {
       name:"personal",
       data(){
@@ -156,7 +155,6 @@
       },
       components:{
         SHeader,
-        AlertTip,
       }
     }
 </script>

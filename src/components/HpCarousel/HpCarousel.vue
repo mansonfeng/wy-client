@@ -31,7 +31,7 @@
           </div>
         </div>
         <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination  my-swiper-pagination"></div>
       </div>
     </div>
     <div class="footer-container">
@@ -61,7 +61,17 @@
 </template>
 
 <script>
-    export default {}
+  import Swiper from 'swiper'
+  import 'swiper/dist/css/swiper.min.css'
+  import {mapState} from 'vuex'
+  export default {
+    name: "hp-carousel",
+    computed:{
+      ...mapState(['focusLists'])
+    },
+
+
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
@@ -89,7 +99,6 @@
           .swiper-pagination-bullet-active
             opacity 1
             background-color salmon
-
     .footer
       height (72/$rem)
       padding (0 30/$rem)

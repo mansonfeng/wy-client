@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <keep-alive>
     <router-view />
+    </keep-alive>
     <Footguide/>
   </div>
 </template>
@@ -11,7 +13,7 @@ export default {
   name:"app",
   components:{
     Footguide
-  }
+  },
 }
 </script>
 
