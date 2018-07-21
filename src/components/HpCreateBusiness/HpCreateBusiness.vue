@@ -31,7 +31,7 @@
     export default {}
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/minxins.styl"
   .create-business
     padding-bottom (20/$rem)

@@ -44,7 +44,7 @@
     }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/minxins.styl"
   .hp-goodJujia
     margin-bottom (20/$rem)

@@ -22,12 +22,14 @@
 </template>
 
 <script>
-    export default {
+  import  Swiper from 'Swiper'
+  import 'swiper/dist/css/swiper.min.css'
+  export default {
 
-    }
+  }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../../common/stylus/minxins.styl"
   .Shiwu-Carousel
     height (186/$rem)

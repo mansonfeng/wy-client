@@ -74,7 +74,7 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/minxins.styl"
   .slide-wrap
     margin-top (148/$rem)

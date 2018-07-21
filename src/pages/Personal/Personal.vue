@@ -1,6 +1,8 @@
 <template>
     <div class="personal-wrap">
+      <!--用的是识物的表头-->
       <SHeader/>
+
       <div class="personal-first-wrap" v-show="isShow">
         <div class="personal-type">
           <div class="content">
@@ -159,7 +161,7 @@
     }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/minxins.styl"
   .personal-wrap
     .personal-first-wrap

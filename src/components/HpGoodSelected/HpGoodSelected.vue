@@ -47,7 +47,7 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/minxins.styl"
   .hp-GoodSelected
     margin-bottom (20/$rem)

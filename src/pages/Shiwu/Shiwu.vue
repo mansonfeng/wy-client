@@ -10,7 +10,6 @@
         <YanXuanZhenP/>
         <YanXuanLook/>
         <More/>
-
       </div>
     </div>
 </template>
@@ -40,7 +39,7 @@
     }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/minxins.styl"
   .ShiWu-wrap
     padding-bottom (98/$rem)

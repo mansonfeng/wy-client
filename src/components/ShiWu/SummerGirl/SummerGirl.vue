@@ -20,15 +20,13 @@
 </template>
 
 <script>
-  import Swiper from 'swiper'
-  import 'swiper/dist/css/swiper.min.css'
   export default {
 
   }
 </script>
 
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../../common/stylus/minxins.styl"
   .Summer-Girl
     background-color #fff
