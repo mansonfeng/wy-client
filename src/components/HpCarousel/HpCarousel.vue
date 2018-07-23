@@ -5,35 +5,15 @@
     <div class="swiper">
       <div class="swiper-container swiper-inner1">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="./images/01.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/02.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/03.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/04.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/05.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/06.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/07.jpg" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/08.jpg" alt="">
+          <div class="swiper-slide" v-for="(focusList, index) in focusLists" :key="index">
+            <img :src="focusList.picUrl" alt="aaa">
           </div>
         </div>
         <!-- 如果需要分页器 -->
-        <div class="swiper-pagination  my-swiper-pagination"></div>
+        <div class="my-swiper-pagination swiper-pagination"></div>
       </div>
     </div>
+
     <div class="footer-container">
       <ul class="footer">
         <li class="item">
@@ -61,16 +41,30 @@
 </template>
 
 <script>
+
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
   import {mapState} from 'vuex'
+
   export default {
-    name: "hp-carousel",
-    computed:{
+    name:'Hp-Carousel',
+    computed: {
       ...mapState(['focusLists'])
     },
-
-
+    mounted () {
+      this.$store.dispatch('getFocusList', () => {
+        this.$nextTick(() => {
+          new Swiper('.swiper-inner1', {
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            autoheight: true,
+            loop: true
+          })
+        })
+      })
+    }
   }
 </script>
 
@@ -99,6 +93,7 @@
           .swiper-pagination-bullet-active
             opacity 1
             background-color salmon
+
     .footer
       height (72/$rem)
       padding (0 30/$rem)

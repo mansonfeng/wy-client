@@ -1,27 +1,44 @@
 <template>
   <div class="Summer-Girl">
     <div class="Girl-wrap">
-      <div class="swiper-Summer">
 
-        <div class="swiper-wrap">
-          <a href="/" class="swiper-slide my-slide">
-            <img src="./images/01.jpg" >
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <a href="/" class="swiper-slide my-slide" v-for="(summerGirl, index) in summerGirls" :key="index">
+            <img :src="summerGirl.picUrl" alt="">
             <div class="content">
-              <div class="Summer-title">xxxx</div>
-              <div class="title">xxxx</div>
-              <div class="dec">xxxx</div>
+              <div class="sub-title">{{summerGirl.subTitle}}</div>
+              <div class="title">{{summerGirl.title}}</div>
+              <div class="desc">{{summerGirl.desc}}</div>
             </div>
           </a>
         </div>
-
       </div>
+
     </div>
   </div>
 </template>
 
 <script>
-  export default {
+  import {mapState} from 'vuex'
+  import Swiper from 'swiper'
+  import 'swiper/dist/css/swiper.min.css'
 
+  export default {
+    name: "Summer-Girl",
+    computed: {
+      ...mapState(['summerGirls'])
+    },
+    mounted () {
+      this.$store.dispatch('getSummerGirl', () => {
+        this.$nextTick(() => {
+          new Swiper('.swiper-container', {
+            autoheight: true,
+            slidesPerView: 'auto'
+          })
+        })
+      })
+    }
   }
 </script>
 
@@ -31,7 +48,7 @@
   .Summer-Girl
     background-color #fff
     .Girl-wrap
-      padding (1/$rem 0)
+      padding (24/$rem 0)
       width (690/$rem)
       margin auto
       .my-slide
@@ -44,10 +61,11 @@
           height (385/$rem)
         .content
           position absolute
-          left 1.3rem
-          top -3.8rem
+          left 0
+          top 0
           bottom 0
           right 0
+          margin auto
           width (466/$rem)
           height (198/$rem)
           background-color rgba(255,255,255,.9)
@@ -55,7 +73,8 @@
           flex-direction column
           align-items center
           justify-content center
-          .Summer-title
+          font-size 0
+          .sub-title
             position relative
             padding (0 8/$rem)
             color #7f7f7f
@@ -80,7 +99,7 @@
             color #333
             line-height (48/$rem)
             font-size (32/$rem)
-          .dec
+          .desc
             margin-top (4/$rem)
             color #333
             line-height (36/$rem)

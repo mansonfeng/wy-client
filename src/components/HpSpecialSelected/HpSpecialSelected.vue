@@ -10,18 +10,18 @@
     <div class="special-slide">
       <div class="special-inner swiper-container">
         <ul class="list swiper-wrapper">
-          <li class="item swiper-slide">
+          <li class="item swiper-slide" v-for="(specialSelected ,index) in specialSelecteds" :key="index">
             <a href="/" class="img-wrap">
-              <img src="./images/SpecialSelected/01.jpg">
+              <img :src="specialSelected.itemPicUrl">
             </a>
             <div class="content">
-              <h4 class="title">xxxxxxxx</h4>
+              <h4 class="title">{{specialSelected.title}}</h4>
               <span class="price">
-                  <span>107.1</span>
+                  <span>{{specialSelected.priceInfo}}</span>
                   <span>元起</span>
                 </span>
             </div>
-            <div class="des">xxxxxxxxx</div>
+            <div class="des">{{specialSelected.subtitle}}</div>
           </li>
         </ul>
       </div>
@@ -32,8 +32,22 @@
 <script>
   import Swiper from "swiper"
   import 'swiper/dist/css/swiper.css'
+  import {mapState} from 'vuex'
   export default {
-
+    name:'special-selected',
+    computed:{
+      ...mapState(['specialSelecteds'])
+    },
+    mounted(){
+      this.$store.dispatch('getSpecialSelected', () => {
+        this.$nextTick(() => {
+          new Swiper('.special-inner', {
+            autoheight: true,
+            slidesPerView: 'auto',
+          })
+        })
+      })
+    }
   }
 </script>
 

@@ -4,39 +4,40 @@
       <div class="title">为你推荐</div>
 
       <a href="javascript:;" class="list-p">
-        <div class="img-container">
+        <div class="img-container" v-if="recommends.recommendBanner" :style="{backgroundImage:'url('+recommends.recommendBanner.picUrl+')'}">
           <div class="tag">
-            <div class="content">xxxx</div>
+            <div class="content">{{recommends.recommendBanner.nickname}}</div>
           </div>
         </div>
 
         <div class="one-info">
           <div class="content1">
-            <div class="content1-title">xxxx</div>
+            <div class="content1-title" v-if="recommends.recommendBanner">{{recommends.recommendBanner.title}}</div>
             <div class="money">
-              <span class="num">x</span>
+              <span class="num" v-if="recommends.recommendBanner">{{recommends.recommendBanner.priceInfo}}</span>
               <span class="yuan">元起</span>
             </div>
           </div>
+          <div class="content2" v-if="recommends.recommendBanner">{{recommends.recommendBanner.subtitle}}</div>
         </div>
       </a>
 
-      <a href="/" class="list-all">
+      <a href="javascript:;" class="list-all" v-for="(recommends, index) in recommends.recommends" :key="index">
         <div class="ones-info">
           <div class="author-p">
             <div class="p">
-              <img src="" alt="不可描述">
+              <img :src="recommends.avatar" alt="">
             </div>
-            <div class="name"></div>
+            <div class="name">{{recommends.nickname}}</div>
           </div>
-          <div class="content1-big "></div>
-          <div class="content2-small"></div>
+          <div class="content1-big ">{{recommends.title}}</div>
+          <div class="content2-small">{{recommends.subtitle}}</div>
         </div>
 
         <div class="twos-info">
-          <div class="img-container">
+          <div class="img-container" :style="{backgroundImage:'url('+recommends.picUrl+')'}">
             <div class="tag">
-              <div class="content"></div>
+              <div class="content">{{recommends.typeName}}</div>
             </div>
           </div>
         </div>
@@ -47,9 +48,16 @@
 </template>
 
 <script>
-    export default {
-
+  import {mapState} from 'vuex'
+  export default {
+    name:'recommend',
+    computed:{
+      ...mapState(['recommends'])
+    },
+    mounted(){
+      this.$store.dispatch('getRecommend')
     }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>

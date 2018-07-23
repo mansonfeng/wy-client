@@ -1,24 +1,24 @@
 <template>
   <section class="hp-goodJujia">
-    <div class="jujia-wrap">
-      <h3 class="title">居家</h3>
+    <div class="jujia-wrap" v-for="(goodJuJia,index) in goodJuJias" :key="index">
+      <h3 class="title">{{goodJuJia.name}}</h3>
       <div class="jujia-content">
         <ul class="list">
-          <li class="item">
-            <a href="/" class="good">
+          <li class="item" v-for="(goodJuJia,index) in goodJuJia.itemList" :key="index">
+            <a href="javascript:;" class="good">
               <div class="good-icon">
-                <img src="./images/jujia/02.png" >
-                <div class="des"></div>
+                <img :src="goodJuJia.primaryPicUrl" alt="">
+                <div class="des">{{goodJuJia.simpleDesc}}</div>
               </div>
               <div class="good-wrap">
                 <span class="jian">满额减</span>
               </div>
               <div class="name">
-                <span>xxx</span>
+                <span>{{goodJuJia.name}}</span>
               </div>
               <div class="money">
                 <span>￥</span>
-                <span>xxx</span>
+                <span>{{goodJuJia.retailPrice}}</span>
               </div>
             </a>
           </li>
@@ -27,7 +27,7 @@
             <a href="/" class="good">
               <p class="text">
                 <span>更多</span>
-                <span>xx好物</span>
+                <span>{{goodJuJia.name}}好物</span>
               </p>
               <i class="icon"></i>
             </a>
@@ -39,9 +39,17 @@
 </template>
 
 <script>
-    export default {
+  import {mapState} from 'vuex'
+  export default {
+    name:'hp-goodJujia',
+    computed:{
+      ...mapState(['goodJuJias'])
+    },
+    mounted(){
+      this.$store.dispatch('getGoodJuJia')
+    },
 
-    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -60,7 +68,7 @@
       .jujia-content
         background-color #fff
         .list
-          overflow hidden //清除浮动
+          overflow hidden
           .item
             padding (0 10/$rem 33/$rem 20/$rem)
             float left

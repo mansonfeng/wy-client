@@ -13,24 +13,24 @@
     </header>
 
     <div class="hp-container">
-      <div class="swiper-inner2 swiper-container">
-        <ul class="list swiper-wrap">
-          <li class="item swiper-slide">
+      <div class="swiper-inner3 swiper-container">
+        <ul class="list swiper-wrapper">
+          <li class="item swiper-slide" v-for="(goodSelected, index) in goodSelecteds" :key="index">
             <a href="">
               <div class="img-wrap">
-                <img src="./images/newProduct/02.png" alt="">
+                <img :src="goodSelected.listPicUrl" alt="">
               </div>
-              <span class="name">xxxxxxxxx</span>
-              <span class="name-d">xxxxxxxxxx</span>
+              <span class="name">{{goodSelected.name}}</span>
+              <span class="name-d">{{goodSelected.simpleDesc}}</span>
               <div class="name-p">
-                <span>￥18</span>
-                <span></span>
+                <span>￥</span>
+                <span>{{goodSelected.retailPrice}}</span>
               </div>
             </a>
           </li>
           <li class="item more swiper-slide">
             <a href="">
-              <span class="text">查看全部</span>
+              <span class="txt">查看全部</span>
             </a>
           </li>
         </ul>
@@ -42,8 +42,22 @@
 <script>
   import  Swiper from 'swiper'
   import  'swiper/dist/css/swiper.min.css'
+  import {mapState} from 'vuex'
   export default {
-
+    name:'hp-GoodSelected',
+    computed:{
+      ...mapState(['goodSelecteds'])
+    },
+    mounted(){
+      this.$store.dispatch('getGoodSelected', () => {
+        this.$nextTick(() => {
+          new Swiper('.swiper-inner3', {
+            autoheight: true,
+            width: 280
+          })
+        })
+      })
+    },
   }
 </script>
 
@@ -90,7 +104,7 @@
     .hp-container
       height (480/$rem)
       background-color #fff
-      .swiper-inner2
+      .swiper-inner3
         display flex
         overflow hidden
         .list

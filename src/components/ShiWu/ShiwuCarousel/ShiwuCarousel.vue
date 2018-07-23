@@ -1,31 +1,41 @@
 <template>
   <div class="Shiwu-Carousel">
-    <div class="swiper-wrap">
-      <div class="swiper-ShiWu list">
-        <a href="/" class="swiper-slide my-slide">
-          <img src="./images/02.png" alt="">
-          <div class="top-wrap">
-            <div class="top-num">xxxx</div>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper list">
+        <a href="/" class="swiper-slide my-slide" v-for="(shiWuCarousel,index) in shiWuCarousels" :key="index">
+          <img :src="shiWuCarousel.picUrl" >
+          <div class="top-num-wrap">
+            <div class="top-num">{{shiWuCarousel.articleCount}}</div>
           </div>
-          <div class="bottom-tit">xxxx</div>
-        </a>
-        <a href="/" class="swiper-slide my-slide">
-          <img src="./images/02.png" alt="">
-          <div class="top-wrap">
-            <div class="top-num">xxxx</div>
-          </div>
-          <div class="bottom-tit">xxxx</div>
+          <div class="title">{{shiWuCarousel.title}}</div>
         </a>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
   import  Swiper from 'Swiper'
   import 'swiper/dist/css/swiper.min.css'
+  import {mapState} from 'vuex'
   export default {
-
+    name:'Shiwu-Carousel',
+    computed:{
+      ...mapState(['shiWuCarousels'])
+    },
+    mounted(){
+      this.$store.dispatch('getShiWuCarousel', () => {
+        this.$nextTick(() => {
+          new Swiper('.swiper-container',{
+            initialSilde:0,
+            autoheight: true,
+            slidesPerView: 'auto'
+          })
+        })
+      })
+    }
   }
 </script>
 
@@ -50,7 +60,7 @@
           height (164/$rem)
           margin-bottom (22/$rem)
           border-radius (4/$rem)
-        .top-wrap
+        .top-num-wrap
           position absolute
           top 0
           right 0
@@ -64,12 +74,14 @@
             position absolute
             top 0
             right (8/$rem)
-            text-align right
+            text-align right    //right和这条样式配合使用，针对宽度不同的问题
             line-height (32/$rem)
             width 2rem
             height (32/$rem)
             font-size (24/$rem)
-        .bottom-tit
+
+
+        .title
           width (184/$rem)
           margin-left (-10/$rem)
           text-align center

@@ -1,7 +1,7 @@
 <template>
   <div class="create-business">
     <header>
-      <a href="/" class="more">
+      <a href="javascript:;" class="more">
         <span>品牌制造商直供</span>
         <i class="icon"></i>
       </a>
@@ -9,16 +9,16 @@
 
     <div class="container">
       <ul class="list">
-        <li class="item">
-          <a href="/">
+        <li class="item" v-if="tagList" v-for="(tagList, index) in tagListsFliter" :key="index">
+          <a href="javascript:;">
             <div class="content">
-              <h4 class="title">品牌制造商直供</h4>
+              <h4 class="title">{{tagList.name}}</h4>
               <div class="price">
-                <span class="price1">CK制造商</span>
-                <span class="price2">25元起</span>
+                <span class="price1">{{tagList.floorPrice}}</span>
+                <span class="price2">元起</span>
               </div>
             </div>
-            <img src="./images/brand/01.png" alt="">
+            <img :src="tagList.picUrl" alt="">
           </a>
         </li>
 
@@ -28,7 +28,24 @@
 </template>
 
 <script>
-    export default {}
+  import {mapState}  from 'vuex'
+  export default {
+    name:'create-business',
+    computed:{
+      ...mapState(['tagLists']),
+
+      tagListsFliter(){
+        const arr=[];
+        for(var i=0;i<4;i++){
+          arr.push(this.tagLists[i])
+        }
+        return arr
+      }
+    },
+    mounted(){
+      this.$store.dispatch('getTagList')
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
