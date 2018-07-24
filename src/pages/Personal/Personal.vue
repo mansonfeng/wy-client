@@ -93,7 +93,7 @@
             </div>
           </div>
           <div class="btn-wrap">
-            <div class="w-button phone-button" >
+            <div class="w-button phone-button" @click="emailPersonal" >
               <i class="b-icon icon-phone"></i>
               <span>登录</span>
             </div>
