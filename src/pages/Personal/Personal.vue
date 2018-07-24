@@ -124,16 +124,16 @@
         }
       },
       computed:{
-        rightPhone () {
+        rightPhone(){
           return /^1\d{10}$/.test(this.phone)
         }
       },
       methods:{
-        phonePersonal () {
+        phonePersonal(){
           this.isShow = !this.isShow
           this.personalWay = !this.personalWay
         },
-        emailPersonal () {
+        emailPersonal(){
           this.isShow = !this.isShow
         },
         getCode(){
