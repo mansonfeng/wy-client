@@ -4,26 +4,44 @@
       <div class="title">严选Look</div>
 
       <a href="javascript:;" class="Look-wrap">
-        <img src="" alt="" class="scene-pic">
+
+        <img :src="yanXuanLooks.picUrl" alt="xx" class="scene-pic">
         <div class="topic-info">
           <div class="author-container">
             <div class="avatar">
-              <img src="" alt="xxxxx">
+              <img :src="yanXuanLooks.avatar" alt="">
             </div>
-            <div class="name">xxxx</div>
+            <div class="name">{{yanXuanLooks.nickname}}</div>
           </div>
-          <div class="des">xxxxxxxxxx</div>
+          <div class="des">{{yanXuanLooks.content}}</div>
         </div>
+
       </a>
     </div>
   </div>
 </template>
 
 <script>
-
-    export default {
+  import  {mapState} from 'vuex'
+  export default {
+    name:'YanXuan-Look',
+    data(){
+      return {
+        show:true
+      }
+    },
+    computed:{
+      ...mapState(['yanXuanLooks'])
+    },
+    mounted(){
+      this.$store.dispatch('getYanXuanLook', () => {
+        setInterval(() => {
+          this.show = !this.show
+        },600)
+      })
 
     }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -67,4 +85,5 @@
             color #7f7f7f
             line-height 1.6
             font-size (28/$rem)
+
 </style>

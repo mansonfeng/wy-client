@@ -1,31 +1,30 @@
 <template>
-  <section class="hp-goodJujia">
-    <div class="jujia-wrap" v-for="(goodJuJia,index) in goodJuJias" :key="index">
+  <div class="jujia-wrap">
+    <div class="jujia-container" v-for="(goodJuJia, index) in goodJuJias" :key="index">
       <h3 class="title">{{goodJuJia.name}}</h3>
       <div class="jujia-content">
         <ul class="list">
-          <li class="item" v-for="(goodJuJia,index) in goodJuJia.itemList" :key="index">
+          <li class="item" v-for="(goodJuJia, index) in goodJuJia.itemList" :key="index">
             <a href="javascript:;" class="good">
-              <div class="good-icon">
+              <div class="hd">
                 <img :src="goodJuJia.primaryPicUrl" alt="">
-                <div class="des">{{goodJuJia.simpleDesc}}</div>
+                <div class="desc">{{goodJuJia.simpleDesc}}</div>
               </div>
-              <div class="good-wrap">
-                <span class="jian">满额减</span>
+              <div class="tag-wrap">
+                <span class="tag">满额减</span>
               </div>
               <div class="name">
                 <span>{{goodJuJia.name}}</span>
               </div>
-              <div class="money">
+              <div class="price">
                 <span>￥</span>
                 <span>{{goodJuJia.retailPrice}}</span>
               </div>
             </a>
           </li>
-
           <li class="item more">
             <a href="/" class="good">
-              <p class="text">
+              <p class="txt">
                 <span>更多</span>
                 <span>{{goodJuJia.name}}好物</span>
               </p>
@@ -35,7 +34,7 @@
         </ul>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -54,10 +53,10 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/minxins.styl"
-  .hp-goodJujia
+  .jujia-wrap
     margin-bottom (20/$rem)
     background-color #fff
-    .jujia-wrap
+    .jujia-container
       background-color #f4f4f4
       .title
         line-height (120/$rem)
@@ -68,16 +67,17 @@
       .jujia-content
         background-color #fff
         .list
-          overflow hidden
+          float left
+          overflow  hidden
           .item
             padding (0 10/$rem 33/$rem 20/$rem)
             float left
-            width 50%
+            width 45%
             &.more
               .good
                 border-radius (4/$rem)
                 background-color #f4f4f4
-                padding (132/$rem 0)
+                padding (120/$rem 0)
                 display flex
                 flex-direction column
                 align-items center
@@ -95,7 +95,7 @@
                   width (67/$rem)
                   height (67/$rem)
             .good
-              .good-icon
+              .hd
                 background-color #f4f4f4
                 border-radius (4/$rem)
                 position relative
@@ -104,26 +104,25 @@
                   display inline-block
                   height (345/$rem)
                   width 100%
-                .des
+                .desc
                   position absolute
                   bottom 0
                   width 100%
                   font-size (24/$rem)
                   line-height (29/$rem)
-                  padding (20/$rem 10/$rem)
+                  padding (20/$rem 0/$rem 20/$rem 0/$rem)
                   white-space nowrap
                   overflow hidden
                   text-overflow ellipsis
                   background-color #F1ECE2
                   color #9F8A60
                   border-radius (0 0 4/$rem 4/$rem)
-
-              .good-wrap
+              .tag-wrap
                 padding-left (10/$rem)
                 height (30/$rem)
                 margin (20/$rem 0 0 4/$rem)
                 font-size 0
-                .jian
+                .tag
                   color #fff
                   background-color #f48f18
                   font-size (20/$rem)
@@ -141,8 +140,10 @@
                 color #333
                 margin-top (10/$rem)
                 padding (0 10/$rem)
-              .money
+              .price
                 padding (0 10/$rem)
                 color #b4282d
                 font-size (32/$rem)
+
+
 </style>

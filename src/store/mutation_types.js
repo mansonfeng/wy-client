@@ -20,3 +20,7 @@ export const RECEIVE_YANXUANLOOKS ='receive_yanXuanLooks';
 export const RECEIVE_MORES ='receive_mores';
 
 
+
+export const RECEIVE_CLASSIFYS ='receive_classifys';
+
+

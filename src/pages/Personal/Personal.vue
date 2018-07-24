@@ -149,11 +149,9 @@
                 this.computeTime = 0
               }
             }, 1000)
-
-
-
           }
         },
+
       },
       components:{
         SHeader,

@@ -16,5 +16,7 @@ export  default {
   tenTimeCarousels:[], //十点一刻
   yanXuanZhenPs:[],  //严选珍品
   yanXuanLooks:[], //严选Look
-  mores:[]  //更多
+  mores:[],  //更多
+
+  classifys:[],  //分类
 }

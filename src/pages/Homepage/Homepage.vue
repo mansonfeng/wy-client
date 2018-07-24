@@ -41,6 +41,7 @@
       name:"homepage",
       data(){
         return {
+
         }
       },
       methods : {

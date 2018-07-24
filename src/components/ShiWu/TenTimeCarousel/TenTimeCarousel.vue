@@ -1,5 +1,5 @@
 <template>
-  <div class="TenTime-Carousel">
+  <div class="tenfive-wrap">
     <div class="inner">
       <div class="title">十点一刻</div>
 
@@ -67,9 +67,10 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../../common/stylus/minxins.styl"
-  .TenTime-Carousel
+  .tenfive-wrap
     padding (0 30/$rem 40/$rem)
     margin-bottom (20/$rem)
+  //height (531/$rem)
     background-color #fff
     .inner
       .title

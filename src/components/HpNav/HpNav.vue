@@ -42,7 +42,6 @@
               probeType: 2,
               click: true,
               scrollX: true,
-              scrollY:false,
             })
           })
         })
@@ -121,7 +120,4 @@
               line-height (60/$rem)
               font-size (28/$rem)
               text-align center
-
-
-
 </style>

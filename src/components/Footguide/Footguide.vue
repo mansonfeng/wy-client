@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer v-if="$route.meta.isShow">
     <div class="guide_item" @click="goto('/homepage')" >
       <i class="iconfont homepage" :class="{on: isCurrent('/homepage')}"></i>
       <span class="text" :class="{on: isCurrent('/homepage')}">首页</span>

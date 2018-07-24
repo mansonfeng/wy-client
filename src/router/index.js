@@ -7,6 +7,7 @@ import Personal from '../pages/Personal/Personal.vue'
 import Shiwu from '../pages/Shiwu/Shiwu.vue'
 import Shopcart from '../pages/Shopcart/Shopcart.vue'
 
+import Firstpage from '../pages/Firstpage/Firstpage.vue'
 
 Vue.use(Router)
 
@@ -14,27 +15,45 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/homepage'
+      redirect: '/Firstpage',
+
     },
     {
       path: '/classify',
-      component: Classify
+      component: Classify,
+      meta:{
+        isShow:true
+      }
     },
     {
       path: '/homepage',
-      component: Homepage
+      component: Homepage,
+      meta:{
+        isShow:true
+      }
     },
     {
       path: '/personal',
       component: Personal
+
     },
     {
       path: '/shiwu',
-      component: Shiwu
+      component: Shiwu,
+      meta:{
+        isShow:true
+      }
     },
     {
       path: '/shopcart',
-      component: Shopcart
+      component: Shopcart,
+      meta:{
+        isShow:true
+      }
+    },
+    {
+      path: '/firstpage',
+      component: Firstpage
     }
   ]
 })

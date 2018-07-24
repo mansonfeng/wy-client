@@ -1,26 +1,18 @@
 import {
-  RECEIVE_NAVCATES,
-  RECEIVE_FOCUSLISTS,
-  RECEIVE_TAGLISTS,
-  RECEIVE_FIRSTNEWS,
-  RECEIVE_GOODSELECTEDS,
-  RECEIVE_SPECIALSELECTEDS,
-  RECEIVE_GOODJUJIAS,
+  RECEIVE_NAVCATES, RECEIVE_FOCUSLISTS, RECEIVE_TAGLISTS, RECEIVE_FIRSTNEWS, RECEIVE_GOODSELECTEDS,
+  RECEIVE_SPECIALSELECTEDS, RECEIVE_GOODJUJIAS,
 
-  RECEIVE_SUMMERGIRLS,
-  RECEIVE_SHIWUCAROUSELS,
-  RECEIVE_RECOMMENDS,
-  RECEIVE_TENTIMECAROUSELS,
-  RECEIVE_YANXUANZHENPS,
-  RECEIVE_YANXUANLOOKS,
-  RECEIVE_MORES,
+  RECEIVE_SUMMERGIRLS, RECEIVE_SHIWUCAROUSELS, RECEIVE_RECOMMENDS, RECEIVE_TENTIMECAROUSELS, RECEIVE_YANXUANZHENPS,
+  RECEIVE_YANXUANLOOKS, RECEIVE_MORES,
+
+  RECEIVE_CLASSIFYS,
 
 }from './mutation_types'
 
 import {
   reqNavCateList, reqFocusList, reqTagList, reqFirstNew, reqGoodSelected, reqSpecialSelected, reqGoodJuJia,
-
   reqSummerGirl, reqShiWuCarousel, reqRecommend, reqTenTimeCarousel, reqYanXuanZhenP, reqYanXuanLook, reqMore,
+  reqClassify,
 
 }from '../api'
 
@@ -93,7 +85,6 @@ export default {
       callback && callback()
     }
   },
-
   async getShiWuCarousel ({commit},callback){
     const result =await reqShiWuCarousel();
     if(result.code===0){
@@ -102,7 +93,6 @@ export default {
       callback && callback()
     }
   },
-
   async getRecommend ({commit},callback){
     const result =await reqRecommend();
     if(result.code===0){
@@ -111,7 +101,6 @@ export default {
       callback && callback()
     }
   },
-
   async getTenTimeCarousel ({commit},callback){
     const result =await reqTenTimeCarousel();
     if(result.code===0){
@@ -120,7 +109,6 @@ export default {
       callback && callback()
     }
   },  //样式有点小问题
-
   async getYanXuanZhenP ({commit},callback){
     const result =await reqYanXuanZhenP();
     if(result.code===0){
@@ -129,7 +117,6 @@ export default {
       callback && callback()
     }
   },
-
   async getYanXuanLook ({commit},callback){
     const result =await reqYanXuanLook();
     if(result.code===0){
@@ -147,5 +134,12 @@ export default {
     }
   },
 
-
+  async getClassify ({commit},callback){
+  const result =await reqClassify();
+  if(result.code===0){
+    const classifys = result.data;
+    commit(RECEIVE_CLASSIFYS,{classifys});
+    callback && callback()
+  }
+}
 }
